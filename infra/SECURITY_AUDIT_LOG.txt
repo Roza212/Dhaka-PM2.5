@@ -1,0 +1,11 @@
+Production Security Audit Log & Vulnerability Checks
+
+[2026-07-22]
+- Vulnerability Check: Unencrypted traffic interception. 
+  * Mitigation: Configured HTTPSRedirectMiddleware in backend/security_config.py to automatically drop all HTTP requests.
+- Vulnerability Check: Data loss and unauthorized database access. 
+  * Mitigation: Developed infra/backup_script.sh. The strategy strictly mandates AES-256-CBC encryption of PostgreSQL dumps *before* they are uploaded to the secure S3 storage bucket.
+- Vulnerability Check: Supply chain attacks and code injection. 
+  * Mitigation: Configured GitHub Actions (.github/workflows/security.yml) enforcing Bandit (SAST) for static analysis and Safety for dependency CVE scanning on every push/PR.
+- Vulnerability Check: Lack of non-repudiation and insider threats. 
+  * Mitigation: Integrated specialized `audit_logger` tracking User, Action, Resource, and Status for all critical API interactions, maintaining a tamper-evident audit trail.
