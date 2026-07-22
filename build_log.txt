@@ -16,3 +16,20 @@ Build Log: Hyper-Local Dhaka PM2.5 STGCN Documentation
 - Created a production-ready Python script (setup_directories.py) to generate the directories.
 - The script automatically includes .gitkeep files inside each folder for version control tracking and uses Python's logging module for observability.
 - Executed the python script to generate the folder structure.
+
+[2026-07-22 14:08]
+- Received request to commit changes to GitHub (https://github.com/Roza212/Dhaka-PM2.5.git).
+- Initialized a git repository, set the remote origin, and staged all files (documentation and directory structure).
+- Created the initial commit and initiated the push to the main branch.
+
+[2026-07-22 14:13]
+- Received request to build a security-first foundation (SECURITY.md, THREAT_MODEL.md, .env.example).
+- Logged Threat Assumptions:
+  1. API endpoints are vulnerable to DDoS/scraping (mitigated by rate limiting).
+  2. Map/Weather API keys are vulnerable to leakage (mitigated by environment variables & secret management).
+  3. ML Models are vulnerable to data poisoning from untrusted external streams (mitigated by data sanitization & validation).
+  4. Unauthorized access to admin/MLOps dashboards (mitigated by strict RBAC and secure JWTs).
+- Generated SECURITY.md outlining vulnerability reporting procedures.
+- Generated THREAT_MODEL.md detailing assets, threats, and mitigations.
+- Generated .env.example outlining required environment configurations safely.
+- Committed and pushed these security foundations to GitHub.
