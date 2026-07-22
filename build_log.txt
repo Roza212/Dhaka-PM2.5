@@ -33,3 +33,13 @@ Build Log: Hyper-Local Dhaka PM2.5 STGCN Documentation
 - Generated THREAT_MODEL.md detailing assets, threats, and mitigations.
 - Generated .env.example outlining required environment configurations safely.
 - Committed and pushed these security foundations to GitHub.
+
+[2026-07-22 14:15]
+- Received request to generate exhaustive functional requirement documentation and initial API schema definitions.
+- Generated docs/FUNCTIONAL_REQUIREMENTS.md detailing data ingestion schedules, graph definitions, and STGCN fallback mechanisms.
+- Generated docs/API_SCHEMA.md mapping out FastAPI endpoints (/auth/token, /predictions/hyperlocal, /graph/health, /export/historical).
+- API Decisions Logged:
+  1. Use JWT Bearer tokens for all data and export endpoints.
+  2. Prediction endpoint will accept geo-coordinates and a time horizon, returning an array of predictions up to 6 hours.
+  3. Graph health endpoint introduced to monitor the real-time freshness of the underlying ETL pipelines (OSM and Traffic).
+- Staged, committed, and pushed these docs to GitHub to prevent downstream ambiguity.
