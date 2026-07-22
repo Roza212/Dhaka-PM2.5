@@ -61,3 +61,13 @@ Build Log: Hyper-Local Dhaka PM2.5 STGCN Documentation
 - Developed data/graph_builder.py to compile nodes and edges, exporting the final topology as an STGCN-compatible JSON adjacency list.
 - Built tests/test_graph_builder.py to enforce topological connectivity tests (ensuring one-way streets don't bleed data backward).
 - Staged, committed, and pushed the Graph Construction module to GitHub.
+
+[2026-07-22 20:44]
+- Received request to build the Feature Engineering component for the STGCN model.
+- Logged Feature Selection Rationale:
+  1. Temporal Encoding: Replaced linear timestamps with Cyclical Sine/Cosine encoding for Hour-of-Day and Day-of-Week to properly represent temporal proximity (e.g., 23:00 is temporally close to 00:00).
+  2. Edge Weights: Utilized Inverse Traffic Speed to denote bottleneck severity; slow traffic heavily weights the edge, propagating localized PM2.5 spikes.
+  3. Feature Scaling: Enforced StandardScaler for PM2.5 values and MinMaxScaler for meteorological data to prevent vanishing/exploding gradients during neural network training.
+- Developed ml/feature_engineering.py applying pandas and scikit-learn for robust transformation pipelines.
+- Developed tests/test_feature_engineering.py to ensure numerical stability and correct cyclical encoding boundary conditions.
+- Staged, committed, and pushed the Feature Engineering specs and code to GitHub.
