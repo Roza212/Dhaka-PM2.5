@@ -1,0 +1,18 @@
+Build Log: Hyper-Local Dhaka PM2.5 STGCN Documentation
+
+[2026-07-22 14:00]
+- Received request to generate core project documentation (PRD, TRD, SRS, ROADMAP, ARCHITECTURE) and a build log based on the project overview provided.
+- Analyzed the primary objectives: hyper-local PM2.5 prediction using STGCN, GIS dashboard, geospatial graph integration, enterprise-grade production, and academic impact.
+- Drafted PRD.md: Included Product Vision, Target Audience, Core Features, and Novelty based on the provided PDF content.
+- Drafted TRD.md: Outlined Technology Stack (FastAPI, MLflow, DVC), Data Sources (OpenStreetMap, OpenAQ, Google Maps Traffic APIs, Weather APIs), and Security details.
+- Drafted SRS.md: Specified clear Functional Requirements (FR1-FR6) and Non-Functional Requirements (NFR1-NFR4).
+- Drafted ROADMAP.md: Phased the project into 4 stages: Data Integration, ML Model Development, Backend & API Development, and Frontend/Deployment.
+- Drafted ARCHITECTURE.md: Created a Mermaid.js diagram illustrating the data flow from sources to the ETL pipeline, into the STGCN model, through FastAPI, and finally to the GIS dashboard.
+- Created build_log.txt to record these actions.
+- All files written to workspace: e:\Antigravity\Dhaka PM2.5 project
+
+[2026-07-22 14:04]
+- Received request to create the standardized directory structure (backend/, frontend/, ml/, data/, infra/, docs/, tests/).
+- Created a production-ready Python script (setup_directories.py) to generate the directories.
+- The script automatically includes .gitkeep files inside each folder for version control tracking and uses Python's logging module for observability.
+- Executed the python script to generate the folder structure.
