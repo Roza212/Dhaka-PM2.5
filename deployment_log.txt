@@ -7,3 +7,14 @@ Deployment & Training Log: STGCN ML Ops
 - Generated dvc.yaml pipeline configuration. The `train` stage tracks dependencies (data/processed, feature eng code, model code) and outputs (models/stgcn_weights.pth), guaranteeing absolute reproducibility and dataset pinning.
 - Added tests/test_models.py utilizing Pytest to run Forward Pass Assertions. Ensured tensors conform to exact dimensional shapes ([batch, 1]) and verified no NaN propogation.
 - Committed all files, architectures, tracking code, and configurations to GitHub.
+
+[2026-07-22 21:08]
+- Received request to build the FastAPI backend application incorporating strict security measures.
+- Logged Execution & Middleware Configs:
+  1. Initialized FastAPI framework to serve STGCN model predictions via `/api/v1/predictions/hyperlocal`.
+  2. Integrated custom Rate-Limiting middleware globally blocking clients after 100 requests/minute to prevent DDoS or scraping attacks.
+  3. Developed PyJWT token generation and verification dependencies (backend/auth.py).
+  4. Implemented strict RBAC boundaries; standard users can query predictions, but only authenticated `admin` roles can access internal diagnostics (`/api/v1/graph/health`).
+  5. Enforced Pydantic schemas (backend/schemas.py) for all inputs/outputs ensuring strict data validation.
+- Built comprehensive Pytest suite (tests/test_backend.py) verifying unauthorized rejection (401), RBAC forbidden boundaries (403), and successful prediction parsing (200).
+- Committed and pushed all backend application source code to GitHub.
