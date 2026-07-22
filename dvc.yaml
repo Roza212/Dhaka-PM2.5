@@ -1,0 +1,10 @@
+stages:
+  train:
+    cmd: python ml/train.py
+    deps:
+      - ml/train.py
+      - ml/models.py
+      - ml/feature_engineering.py
+      - data/processed/
+    outs:
+      - models/stgcn_weights.pth

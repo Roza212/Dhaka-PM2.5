@@ -1,0 +1,9 @@
+Deployment & Training Log: STGCN ML Ops
+
+[2026-07-22 20:47]
+- Received request to build baseline models, STGCN architecture, MLflow integration, and DVC setup.
+- Developed ml/models.py containing the BaselineModel (MLP) and the primary STGCNModel built on PyTorch, strictly architected to handle temporal (1D Conv) and spatial (Linear graph simulation) feature sets.
+- Built ml/train.py, implementing the full MLflow tracking suite. Hyperparameters (learning rate, epochs, optimizer) and epoch-level loss curves are now strictly logged for reproducible analysis.
+- Generated dvc.yaml pipeline configuration. The `train` stage tracks dependencies (data/processed, feature eng code, model code) and outputs (models/stgcn_weights.pth), guaranteeing absolute reproducibility and dataset pinning.
+- Added tests/test_models.py utilizing Pytest to run Forward Pass Assertions. Ensured tensors conform to exact dimensional shapes ([batch, 1]) and verified no NaN propogation.
+- Committed all files, architectures, tracking code, and configurations to GitHub.
