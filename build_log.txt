@@ -43,3 +43,11 @@ Build Log: Hyper-Local Dhaka PM2.5 STGCN Documentation
   2. Prediction endpoint will accept geo-coordinates and a time horizon, returning an array of predictions up to 6 hours.
   3. Graph health endpoint introduced to monitor the real-time freshness of the underlying ETL pipelines (OSM and Traffic).
 - Staged, committed, and pushed these docs to GitHub to prevent downstream ambiguity.
+
+[2026-07-22 14:17]
+- Received request to build the ETL pipeline component.
+- Generated docs/ETL_SPEC.md defining extraction, transformation (NaN imputation, timestamp normalization), and load strategies.
+- Developed data/etl_pipeline.py incorporating standard logging, robust Pandas-based transformations, and Parquet data exports for efficiency.
+- Built tests/test_etl_pipeline.py to automatically validate data extraction formats and NaN handling via Pytest.
+- Automated ETL pipeline is structured to execute seamlessly and maintain reliable data structures for the STGCN graph.
+- Staged, committed, and pushed the complete ETL module to GitHub.
