@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka PM2.5 Predictive Dashboard</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="brand">
+                <h1 class="brand-title">Dhaka<span class="highlight">STGCN</span></h1>
+                <p class="subtitle">Hyper-Local PM2.5 Forecasting</p>
+            </div>
+            
+            <div class="control-panel">
+                <label for="horizon-select">Prediction Horizon:</label>
+                <select id="horizon-select" class="glass-input">
+                    <option value="1">+1 Hour (Immediate)</option>
+                    <option value="3" selected>+3 Hours (Short-term)</option>
+                    <option value="6">+6 Hours (Strategic)</option>
+                </select>
+                <button id="refresh-btn" class="glow-btn">Live Sync Engine</button>
+            </div>
+            
+            <div class="stats-panel">
+                <div class="stat-box">
+                    <h3>Current PM2.5</h3>
+                    <p id="current-aqi" class="stat-value pulse-text">--</p>
+                </div>
+                <div class="stat-box">
+                    <h3>AI Confidence</h3>
+                    <p id="confidence-score" class="stat-value">--%</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="map-wrapper glass-panel">
+                <div id="gis-map"></div>
+            </div>
+            <div class="chart-wrapper glass-panel">
+                <canvas id="predictionChart"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
