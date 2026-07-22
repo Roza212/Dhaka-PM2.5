@@ -1,0 +1,9 @@
+Infrastructure Provisioning & CI/CD Deployment Log
+
+[2026-07-22]
+- Received request to provision production infrastructure (Docker, K8s, Observability, CI/CD).
+- Dockerization: Built a lightweight Dockerfile using `python:3.11-slim` running Uvicorn on port 8000. Created the finalized `requirements.txt` locking all dependency versions.
+- Kubernetes Manifests: Engineered `infra/k8s/deployment.yaml` defining a highly-available 3-replica cluster. Integrated Secret injection for JWT keys to maintain security at scale. Configured `infra/k8s/service.yaml` exposing the LoadBalancer for external traffic routing.
+- CI/CD Pipelines: Created `.github/workflows/deploy.yml` to automatically build Docker images (tagged with Git SHA) and simulate `kubectl apply` commands upon pushes to `main`.
+- Observability: Configured `infra/observability/prometheus.yml` leveraging Kubernetes service discovery to automatically scrape backend pods containing the `prometheus.io/scrape` annotation, establishing the telemetry foundation for Grafana.
+- Staged, committed, and pushed all infrastructure-as-code (IaC) files to GitHub.
